@@ -38,6 +38,16 @@ class TestPoker(unittest.TestCase):
 
         self.assertEqual(evaluate_hand(hand), ("Couleur", 45))
 
+    
+
+    def test_full(self):
+        hand = [
+            Card(2, "♥"), Card(2, "♠"), Card(2, "♦"),
+            Card(9, "♣"), Card(9, "♠")
+        ]
+
+        self.assertEqual(evaluate_hand(hand), ("Full", 50))
+
 
 
 if __name__ == "__main__":

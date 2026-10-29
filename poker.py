@@ -21,11 +21,19 @@ def is_flush(hand):
     return len(suits) == 1
 
 
+def is_full(hand):
+    value_counts = Counter(card.value for card in hand)
+    return sorted(value_counts.values()) == [2, 3]
+
+
+
 
 
 def evaluate_hand(hand):
     values = [card.value for card in hand]
     value_counts = Counter(values)
+    if is_full(hand):
+        return ("Full", 50)
 
     if is_three_of_a_kind(hand):
         return ("Brelan", 30)
@@ -35,6 +43,9 @@ def evaluate_hand(hand):
     
     if is_flush(hand):
         return ("Couleur", 45)
+
+
+
 
     return ("Carte haute", max(values))
 
