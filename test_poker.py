@@ -67,6 +67,22 @@ class TestPoker(unittest.TestCase):
 
         self.assertEqual(evaluate_hand(hand), ("Quinte flush", 80))
 
+    # Edge cases for straight
+    def test_ace_low_is_not_a_straight(self):
+        hand = [
+            Card(14, "♥"), Card(2, "♠"), Card(3, "♦"),
+            Card(4, "♣"), Card(5, "♥")
+        ]
+        self.assertEqual(evaluate_hand(hand), ("Carte haute", 14))
+
+
+    def test_ace_high_is_a_straight(self):
+        hand = [
+            Card(10, "♥"), Card(11, "♠"), Card(12, "♦"),
+            Card(13, "♣"), Card(14, "♥")
+        ]
+        self.assertEqual(evaluate_hand(hand), ("Suite", 40))
+
 
 
 if __name__ == "__main__":
