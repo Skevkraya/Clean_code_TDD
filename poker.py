@@ -38,6 +38,13 @@ def is_four_of_a_kind(hand):
 def evaluate_hand(hand):
     values = [card.value for card in hand]
     value_counts = Counter(values)
+
+    straight = is_straight(hand)
+    flush = is_flush(hand)
+
+    if straight and flush:
+        return ("Quinte flush", 80)
+
     if is_four_of_a_kind(hand):
         return ("Carré", 60)
     

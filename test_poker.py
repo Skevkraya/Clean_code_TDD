@@ -4,6 +4,7 @@ from poker import Card, evaluate_hand
 
 
 class TestPoker(unittest.TestCase):
+    
 
     def test_high_card(self):
         hand = [
@@ -57,6 +58,14 @@ class TestPoker(unittest.TestCase):
 
         self.assertEqual(evaluate_hand(hand), ("Carré", 60))
 
+
+    def test_straight_flush(self):
+        hand = [
+            Card(5, "♥"), Card(6, "♥"), Card(7, "♥"),
+            Card(8, "♥"), Card(9, "♥")
+        ]
+
+        self.assertEqual(evaluate_hand(hand), ("Quinte flush", 80))
 
 
 
