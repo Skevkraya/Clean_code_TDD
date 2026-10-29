@@ -47,6 +47,16 @@ class TestPoker(unittest.TestCase):
         ]
 
         self.assertEqual(evaluate_hand(hand), ("Full", 50))
+    
+    
+    def test_four_of_a_kind(self):
+        hand = [
+            Card(8, "♥"), Card(8, "♠"), Card(8, "♦"),
+            Card(8, "♣"), Card(2, "♥")
+        ]
+
+        self.assertEqual(evaluate_hand(hand), ("Carré", 60))
+
 
 
 

@@ -26,12 +26,21 @@ def is_full(hand):
     return sorted(value_counts.values()) == [2, 3]
 
 
+def is_four_of_a_kind(hand):
+    value_counts = Counter(card.value for card in hand)
+    return 4 in value_counts.values()
+
+
+
 
 
 
 def evaluate_hand(hand):
     values = [card.value for card in hand]
     value_counts = Counter(values)
+    if is_four_of_a_kind(hand):
+        return ("Carré", 60)
+    
     if is_full(hand):
         return ("Full", 50)
 
