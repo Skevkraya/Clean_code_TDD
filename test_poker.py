@@ -30,5 +30,15 @@ class TestPoker(unittest.TestCase):
         self.assertEqual(evaluate_hand(hand), ("Suite", 40))
 
 
+    def test_flush(self):
+        hand = [
+            Card(2, "♥"), Card(5, "♥"), Card(7, "♥"),
+            Card(10, "♥"), Card(13, "♥")
+        ]
+
+        self.assertEqual(evaluate_hand(hand), ("Couleur", 45))
+
+
+
 if __name__ == "__main__":
     unittest.main()
