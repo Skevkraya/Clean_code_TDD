@@ -20,6 +20,15 @@ class TestPoker(unittest.TestCase):
 
         self.assertEqual(evaluate_hand(hand), ("Brelan", 30))
 
+    
+    def test_straight(self):
+        hand = [
+            Card(5, "♥"), Card(6, "♠"), Card(7, "♦"),
+            Card(8, "♣"), Card(9, "♥")
+        ]
+
+        self.assertEqual(evaluate_hand(hand), ("Suite", 40))
+
 
 if __name__ == "__main__":
     unittest.main()
