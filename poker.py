@@ -1,3 +1,4 @@
+
 from dataclasses import dataclass
 
 
@@ -8,4 +9,5 @@ class Card:
 
 
 def evaluate_hand(hand):
-    pass
+    highest_card = max(card.value for card in hand)
+    return ("Carte haute", highest_card)
